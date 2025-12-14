@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidronexus - Soluções Profissionais em Recursos Hídricos</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS E VARIÁVEIS PREMIUM --- */
+        :root {
+            /* Cores Profissionais */
+            --primary-dark: #0e3b5e; /* Azul Petróleo Escuro */
+            --primary: #145385;      /* Azul Institucional */
+            --secondary: #0abde3;    /* Ciano Moderno (Acentos) */
+            
+            /* Tons Neutros */
+            --text-dark: #1a202c;    /* Preto Suave */
+            --text-gray: #4a5568;    /* Cinza Elegante */
+            --bg-white: #ffffff;
+            --bg-alt: #f8fafc;       /* Cinza Gelo muito sutil */
+            
+            /* Sombras Suaves (Estilo Premium) */
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.7; /* Aumentei para melhor leitura */
+        }
+
+        h1, h2, h3, button, .btn-header, .subtitulo { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .subtitulo { color: var(--secondary); text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; display: block; }
+
+        /* --- HEADER PROFISSIONAL --- */
+        header {
+            background: rgba(255, 255, 255, 0.98); /* Leve transparência */
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px); /* Efeito vidro fosco se o navegador suportar */
+        }
+
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; }
+
+        .menu { list-style: none; display: flex; gap: 32px; align-items: center; }
+        .menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .menu a:hover { color: var(--secondary); }
+
+        .btn-header {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .btn-header:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .mobile-btn { display: none; }
+
+        /* --- HERO SECTION (Capa) --- */
+        .hero {
+            /* Gradiente mais escuro e profissional */
+            background: linear-gradient(135deg, rgba(14, 59, 94, 0.92), rgba(20, 83, 133, 0.8)), url('https://images.unsplash.com/photo-1562654501-a0da9615a083?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 160px 0 120px;
+        }
+
+        .hero-content { max-width: 850px; }
+        .hero-tag { background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: var(--secondary); display: inline-block; margin-bottom: 20px; backdrop-filter: blur(5px); }
+        .hero h1 { font-size: 3.5rem; line-height: 1.15; margin-bottom: 24px; }
+        .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 40px; max-width: 650px; color: #e2e8f0; }
+        .hero-btns { display: flex; gap: 20px; }
+
+        .btn-primary, .btn-secondary {
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary { background: var(--secondary); color: var(--primary-dark); box-shadow: var(--shadow-md); }
+        .btn-primary:hover { background: #ffffff; transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); }
+        .btn-secondary:hover { background: white; color: var(--primary-dark); border-color: white; }
+
+        /* --- SEÇÕES GERAIS --- */
+        .secao { padding: 120px 0; } /* Mais espaço vertical */
+        .bg-alt { background-color: var(--bg-alt); }
+        .titulo-central { text-align: center; margin-bottom: 80px; }
+        .titulo-secao { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 24px; line-height: 1.2; }
+
+        /* --- SOBRE --- */
+        .grid-sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .destaque-texto { font-size: 1.3rem; font-weight: 600; color: var(--primary); margin-bottom: 24px; line-height: 1.4; }
+        .texto-sobre p { color: var(--text-gray); margin-bottom: 24px; font-size: 1.05rem; }
+
+        .imagem-sobre-wrapper img {
+            width: 100%;
+            border-radius: 12px;
+            /* Sombra suave e colorida */
+            box-shadow: 0 20px 40px -10px rgba(10, 189, 227, 0.2);
+        }
+
+        /* --- CARDS DE SERVIÇO PREMIUM --- */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card {
+            background: var(--bg-white);
+            padding: 48px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição mais elástica */
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        .icon-wrapper {
+            width: 70px; height: 70px;
+            background: rgba(10, 189, 227, 0.1); /* Fundo circular suave */
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--secondary);
+            margin-bottom: 32px;
+        }
+        .card h3 { color: var(--primary-dark); margin-bottom: 16px; font-size: 1.4rem; }
+        .card p { color: var(--text-gray); font-size: 1rem; }
+
+        /* --- CONTATO --- */
+        .contato-section { background: var(--bg-white); }
+        .grid-contato { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; }
+        .contato-info p { color: var(--text-gray); margin-bottom: 40px; font-size: 1.1rem; }
+        .info-box { margin-bottom: 40px; }
+        .info-item { display: flex; align-items: flex-start; margin-bottom: 32px; }
+        .icon-contact { font-size: 1.6rem; color: var(--secondary); margin-right: 20px; margin-top: 5px; }
+        .info-item strong { display: block; color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 4px; }
+        .info-item a, .info-item span { color: var(--text-gray); text-decoration: none; font-size: 1.05rem; }
+
+        .btn-instagram {
+            display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; color: #E1306C; font-weight: 700; font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .btn-instagram:hover { transform: translateX(5px); }
+
+        /* FORMULÁRIO PREMIUM */
+        .form-premium {
+            background: var(--bg-white);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .campo { margin-bottom: 24px; }
+        .campo label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 0.95rem; color: var(--primary-dark); }
+        .campo input, .campo textarea {
+            width: 100%; padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem; color: var(--text-dark);
+            background: #f8fafc;
+            transition: all 0.3s ease;
+        }
+        .campo input:focus, .campo textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(10, 189, 227, 0.1);
+        }
+        .btn-submit {
+            width: 100%; padding: 18px;
+            background: var(--primary); color: white;
+            border: none; border-radius: 8px;
+            font-weight: 700; font-size: 1.1rem; cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-submit:hover { background: var(--primary-dark); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary-dark); color: #a0aec0; padding: 80px 0 30px; text-align: center; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+        .footer-brand h3 { color: white; font-size: 1.8rem; margin-bottom: 8px; }
+        .social-links { display: flex; gap: 24px; font-size: 1.8rem; margin: 16px 0; }
+        .social-links a { color: var(--bg-alt); transition: 0.3s; }
+        .social-links a:hover { color: var(--secondary); transform: translateY(-3px); }
+        .copy { font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; width: 100%; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 992px) {
+            .grid-sobre, .grid-contato { grid-template-columns: 1fr; gap: 60px; }
+            .imagem-sobre-wrapper { order: -1; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-btn { display: block; font-size: 1.8rem; cursor: pointer; color: var(--primary); }
+            .menu {
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--bg-white); flex-direction: column; padding: 30px;
+                box-shadow: var(--shadow-md); border-top: 1px solid #eee;
+            }
+            .menu.ativo { display: flex; }
+            .menu li { width: 100%; text-align: center; }
+            .btn-header { display: block; width: 100%; margin-top: 15px; }
+            
+            .hero { padding: 120px 0 100px; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-btns { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            
+            .secao { padding: 60px 0; }
+            .titulo-secao { font-size: 2rem; }
+            .form-premium { padding: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <img src="img/logo.jpeg" alt="Hidronexus Logo">
+            </div>
+            
+            <div class="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="#sobre">A Empresa</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li>
+                        <a href="https://wa.me/5512991047473" target="_blank" class="btn-header">
+                            <i class="fa-brands fa-whatsapp"></i> Orçamento
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <span class="hero-tag">Excelência em Recursos Hídricos</span>
+            <h1>Tecnologia e Eficiência na Gestão da Água</h1>
+            <p>Soluções integradas de alta performance para poços artesianos, tratamento e controle de qualidade da água para indústrias e condomínios.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/5512991047473" target="_blank" class="btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i> Fale com um Especialista
+                </a>
+                <a href="#servicos" class="btn-secondary">Nossas Soluções</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao" id="sobre">
+        <div class="container grid-sobre">
+            <div class="texto-sobre">
+                <h4 class="subtitulo">Sobre a Hidronexus</h4>
+                <h2 class="titulo-secao">Compromisso com a Segurança e Sustentabilidade Hídrica</h2>
+                <p class="destaque-texto">Transformamos desafios complexos em soluções práticas e duradouras.</p>
+                <p>A Hidronexus (CNPJ 53.617.308/0001-47) é referência na manutenção técnica e gestão da qualidade da água. Unimos engenharia de ponta, viabilidade econômica e responsabilidade ambiental para garantir o suprimento seguro e eficiente.</p>
+            </div>
+            <div class="imagem-sobre-wrapper">
+                <img src="img/logo.jpeg" alt="Logo Hidronexus" class="imagem-sobre">
+            </div>
+        </div>
+    </section>
+
+    <section class="secao bg-alt" id="servicos">
+        <div class="container">
+            <div class="titulo-central">
+                <h4 class="subtitulo">O Que Oferecemos</h4>
+                <h2>Soluções Integradas</h2>
+            </div>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bore-hole"></i></div>
+                    <h3>Poços Artesianos</h3>
+                    <p>Manutenção preventiva, limpeza química/mecânica e adequação técnica às normas vigentes.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-faucet-drip"></i></div>
+                    <h3>Tratamento e Dosagem</h3>
+                    <p>Dimensionamento e instalação de sistemas de cloração e filtragem para garantia da potabilidade.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3>Gestão da Qualidade</h3>
+                    <p>Monitoramento contínuo, coletas e análises laboratoriais para conformidade com a Portaria de Consolidação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao contato-section" id="contato">
+        <div class="container">
+            <div class="grid-contato">
+                <div class="contato-info">
+                    <h2 class="titulo-secao">Vamos Conversar?</h2>
+                    <p>Nossa equipe técnica está pronta para oferecer o diagnóstico ideal para sua demanda.</p>
+                    
+                    <div class="info-box">
+                        <div class="info-item">
+                            <i class="fa-brands fa-whatsapp icon-contact"></i>
+                            <div>
+                                <strong>Telefone / WhatsApp</strong>
+                                <a href="https://wa.me/5512991047473" target="_blank">(12) 99104-7473</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope icon-contact"></i>
+                            <div>
+                                <strong>E-mail Corporativo</strong>
+                                <span>hidronexus@hotmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://www.instagram.com/hidro_nexus?igsh=MW1peTI4amU1MzVsYw==" target="_blank" class="btn-instagram">
+                        <i class="fa-brands fa-instagram"></i> Siga-nos no Instagram
+                    </a>
+                </div>
+                
+                <form class="form-premium" id="meuFormulario">
+                    <div class="campo">
+                        <label>Nome Completo</label>
+                        <input type="text" id="nome_cliente" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="campo">
+                        <label>Telefone de Contato</label>
+                        <input type="tel" id="telefone_cliente" required placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <div class="campo">
+                        <label>Como podemos ajudar?</label>
+                        <textarea id="msg_cliente" rows="4" placeholder="Descreva brevemente sua necessidade..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">ENVIAR VIA WHATSAPP <i class="fa-brands fa-whatsapp"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Hidronexus</h3>
+                <p>Engenharia e Soluções em Recursos Hídricos.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/hidro_nexus?igsh=MW1peTI4amU1MzVsYw==" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/5512991047473" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p class="copy">&copy; 2025 Hidronexus. CNPJ 53.617.308/0001-47. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // MENU MOBILE
+        const btnMobile = document.querySelector('.mobile-btn');
+        const menu = document.querySelector('.menu');
+        btnMobile.addEventListener('click', () => { menu.classList.toggle('ativo'); });
+        document.querySelectorAll('.menu a').forEach(link => { link.addEventListener('click', () => { menu.classList.remove('ativo'); }); });
+
+        // FUNÇÃO DE ENVIAR FORMULÁRIO PRO WHATSAPP
+        const formulario = document.getElementById('meuFormulario');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Não recarrega a página
+
+            // Pega os dados
+            const nome = document.getElementById('nome_cliente').value;
+            const telefone = document.getElementById('telefone_cliente').value;
+            const mensagem = document.getElementById('msg_cliente').value;
+
+            // Cria o link
+            const textoWhatsApp = `*Olá, vim pelo site da Hidronexus!*%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Mensagem:* ${mensagem}`;
+            const numeroWhatsApp = "5512991047473"; 
+
+            // Abre o WhatsApp
+            const url = `https://wa.me/${numeroWhatsApp}?text=${textoWhatsApp}`;
+            window.open(url, '_blank');
+            
+            // Limpa
+            formulario.reset();
+        });
+    </script>
+
+</body>
+</html>

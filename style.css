@@ -1,0 +1,223 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================= */
+:root {
+    --primary-dark: #0e3b5e;
+    --primary: #145385;
+    --secondary: #0abde3;
+    --text-dark: #1a202c;
+    --text-gray: #4a5568;
+    --bg-white: #ffffff;
+    --bg-alt: #f8fafc;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-alt); /* Unificado */
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, button, .btn-header, .subtitulo, summary { 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+a { text-decoration: none; }
+
+/* =========================================
+   HEADER (HOME)
+   ========================================= */
+header.home-header {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+}
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.menu { list-style: none; display: flex; gap: 32px; align-items: center; }
+.menu a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
+.menu a:hover { color: var(--secondary); }
+.btn-header { background-color: var(--primary); color: white !important; padding: 10px 24px; border-radius: 6px; box-shadow: var(--shadow-sm); transition: 0.3s; }
+.btn-header:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+.mobile-btn { display: none; }
+
+/* =========================================
+   HEADER (PÁGINAS INTERNAS)
+   ========================================= */
+header.internal-header { background: var(--primary-dark); padding: 20px 0; color: white; }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo-text { font-size: 1.5rem; color: white; text-decoration: none; font-weight: 700; }
+.btn-voltar { color: white; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+.btn-voltar:hover { color: var(--secondary); transform: translateX(-5px); }
+
+/* =========================================
+   HERO (HOME)
+   ========================================= */
+.hero {
+    background: linear-gradient(135deg, rgba(14, 59, 94, 0.92), rgba(20, 83, 133, 0.8)), url('https://images.unsplash.com/photo-1562654501-a0da9615a083?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 160px 0 120px;
+}
+.hero-tag { background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; color: var(--secondary); display: inline-block; margin-bottom: 20px; backdrop-filter: blur(5px); }
+.hero h1 { font-size: 3.5rem; line-height: 1.15; margin-bottom: 24px; }
+.hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 40px; max-width: 650px; color: #e2e8f0; }
+.hero-btns { display: flex; gap: 20px; }
+
+/* Botões Gerais Home */
+.btn-primary { background: var(--secondary); color: var(--primary-dark); padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+.btn-primary:hover { background: #ffffff; transform: translateY(-3px); }
+.btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 16px 36px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+.btn-secondary:hover { background: white; color: var(--primary-dark); }
+
+/* =========================================
+   HERO (PÁGINAS INTERNAS)
+   ========================================= */
+.hero-interna {
+    /* O background-image pode ser sobrescrito inline no HTML se variar por página, 
+       mas aqui deixamos o padrão ou base */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0 80px;
+    color: white;
+    text-align: center;
+    background-color: var(--primary-dark); /* Fallback */
+}
+/* Classes específicas para cada fundo de Hero interna */
+.hero-gestao { background: linear-gradient(135deg, rgba(14, 59, 94, 0.95), rgba(20, 83, 133, 0.9)), url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); }
+.hero-pocos { background: linear-gradient(135deg, rgba(14, 59, 94, 0.95), rgba(20, 83, 133, 0.9)), url('https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); }
+.hero-tratamento { background: linear-gradient(135deg, rgba(14, 59, 94, 0.95), rgba(20, 83, 133, 0.9)), url('https://images.unsplash.com/photo-1574360777085-7973eb7f9888?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); }
+
+.hero-interna h1 { font-size: 3rem; margin-bottom: 16px; }
+.hero-interna p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+/* =========================================
+   SEÇÕES GERAIS E HOME
+   ========================================= */
+.secao { padding: 120px 0; }
+.bg-alt { background-color: var(--bg-alt); }
+.titulo-central { text-align: center; margin-bottom: 80px; }
+.titulo-secao { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 24px; line-height: 1.2; }
+.subtitulo { color: var(--secondary); text-transform: uppercase; letter-spacing: 1.2px; font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; display: block; }
+
+/* Sobre */
+.grid-sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.imagem-sobre-wrapper img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px -10px rgba(10, 189, 227, 0.2); }
+
+/* Cards (Serviços Home) */
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.card { background: var(--bg-white); padding: 48px 32px; border-radius: 16px; box-shadow: var(--shadow-sm); transition: 0.4s; border: 1px solid rgba(0,0,0,0.04); display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-12px); box-shadow: var(--shadow-hover); }
+.icon-wrapper { width: 70px; height: 70px; background: rgba(10, 189, 227, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--secondary); margin-bottom: 32px; }
+.btn-card { display: inline-block; color: var(--primary); font-weight: 700; text-decoration: none; margin-top: auto; transition: 0.3s; border-bottom: 2px solid transparent; align-self: flex-start; }
+.btn-card:hover { color: var(--secondary); border-bottom: 2px solid var(--secondary); transform: translateX(5px); }
+
+/* FAQ */
+.faq-wrapper { max-width: 800px; margin: 0 auto; }
+details { background: white; margin-bottom: 15px; padding: 20px 24px; border-radius: 12px; box-shadow: var(--shadow-sm); cursor: pointer; transition: 0.3s; border: 1px solid #eee; }
+details:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+details[open] { border-left: 4px solid var(--secondary); }
+summary { font-size: 1.1rem; color: var(--primary-dark); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::after { content: '+'; font-size: 1.5rem; color: var(--secondary); font-weight: 400; }
+details[open] summary::after { content: '-'; }
+details p { margin-top: 15px; color: var(--text-gray); font-size: 1rem; animation: fadeIn 0.5s ease; }
+
+/* Mapa */
+.grid-mapa { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
+.mapa-wrapper { border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); height: 400px; width: 100%; }
+
+/* Contato */
+.grid-contato { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; }
+.form-premium { background: var(--bg-white); padding: 48px; border-radius: 16px; box-shadow: var(--shadow-md); }
+.campo input, .campo textarea { width: 100%; padding: 16px; border: 2px solid #e2e8f0; border-radius: 8px; background: #f8fafc; margin-top: 8px; }
+.btn-submit { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+.btn-submit:hover { background: var(--primary-dark); }
+.btn-instagram { color: var(--primary); font-weight: 700; margin-top: 20px; display: inline-block; }
+
+/* =========================================
+   CONTEÚDO PÁGINAS INTERNAS
+   ========================================= */
+.detalhes-section { padding: 80px 0; background: white; }
+.grid-detalhes { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start; }
+
+.lista-servicos { list-style: none; margin-top: 24px; }
+.lista-servicos li { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; font-size: 1.05rem; color: var(--text-gray); }
+.lista-servicos li i { color: var(--secondary); }
+
+/* Galeria */
+.galeria-section { padding: 80px 0; background: var(--bg-alt); }
+.titulo-galeria { text-align: center; margin-bottom: 50px; }
+.titulo-galeria h2 { color: var(--primary-dark); font-size: 2.2rem; }
+
+.grid-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.item-galeria { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+.item-galeria:hover { transform: translateY(-10px); }
+.item-galeria img { width: 100%; height: 250px; object-fit: cover; display: block; }
+.legenda-foto { padding: 20px; }
+.legenda-foto h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+.legenda-foto p { font-size: 0.9rem; color: var(--text-gray); }
+
+/* CTA Box */
+.cta-box { text-align: center; padding: 60px 0; }
+.btn-orcamento {
+    background-color: #25D366; 
+    color: white; padding: 16px 32px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    transition: 0.3s; display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-orcamento:hover { background-color: #128C7E; transform: scale(1.05); }
+
+/* =========================================
+   FOOTER (UNIFICADO)
+   ========================================= */
+footer { background: var(--primary-dark); color: #a0aec0; padding: 80px 0 30px; text-align: center; }
+footer.footer-interna { padding: 40px 0; } /* Ajuste menor para internas */
+.social-links a { font-size: 1.8rem; margin: 0 10px; color: white; transition: 0.3s; }
+.social-links a:hover { color: var(--secondary); }
+
+/* =========================================
+   ELEMENTOS FLUTUANTES
+   ========================================= */
+.btn-zap-flutuante {
+    position: fixed; bottom: 25px; right: 25px;
+    background-color: #25D366; color: white;
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999; transition: transform 0.3s;
+}
+.btn-zap-flutuante:hover { transform: scale(1.1) rotate(10deg); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================= */
+@media (max-width: 992px) {
+    .grid-sobre, .grid-contato, .grid-mapa { grid-template-columns: 1fr; gap: 60px; }
+    .hero h1 { font-size: 2.8rem; }
+    .mapa-wrapper { height: 300px; }
+}
+@media (max-width: 768px) {
+    .grid-detalhes { grid-template-columns: 1fr; }
+    .hero-interna h1 { font-size: 2.2rem; }
+    
+    .mobile-btn { display: block; font-size: 1.8rem; cursor: pointer; color: var(--primary); }
+    .menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 30px; box-shadow: var(--shadow-md); }
+    .menu.ativo { display: flex; }
+    .hero-btns { flex-direction: column; }
+    .btn-zap-flutuante { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
+}

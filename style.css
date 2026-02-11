@@ -142,7 +142,15 @@ header.internal-header {
 
 /* Sobre */
 .grid-sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.imagem-sobre-wrapper img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px -10px rgba(10, 189, 227, 0.2); }
+
+/* CORREÇÃO IMAGEM SOBRE - HOME */
+.imagem-sobre-wrapper img { 
+    width: 100%;
+    height: 550px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    box-shadow: 0 20px 40px -10px rgba(10, 189, 227, 0.2); 
+}
 
 /* Cards */
 .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -172,8 +180,80 @@ details p { margin-top: 15px; color: var(--text-gray); }
 /* Páginas Internas */
 .detalhes-section { padding: 80px 0; background: white; }
 .grid-detalhes { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start; }
-.galeria-section { padding: 80px 0; background: var(--bg-alt); }
-.grid-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+/* CORREÇÃO IMAGEM DETALHES */
+.img-detalhes img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;   
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   GALERIA (AJUSTADA PARA ALINHAMENTO E VISIBILIDADE)
+   ========================================= */
+.galeria-section { 
+    padding: 80px 0; 
+    background: var(--bg-alt); 
+}
+
+.grid-galeria { 
+    display: grid; 
+    /* Cards largos (min 350px) para caber fotos grandes e alinhadas */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item-galeria {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: var(--shadow-sm);
+    height: 100%; /* Força todos os cards a terem a mesma altura na linha */
+}
+
+/* ... dentro do seu style.css ... */
+
+.item-galeria img {
+    width: 100%;
+    height: 450px; /* Mantém a altura fixa */
+    
+    /* Mantém a foto inteira visível */
+    object-fit: contain; 
+    
+    /* MUDANÇA AQUI: Fundo branco para sumir com a "borda" cinza */
+    background-color: white; 
+    
+    /* Removemos a linha de borda também para ficar mais limpo */
+    border: none; 
+}
+
+.legenda-foto {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    /* Empurra a legenda para o final do card */
+    margin-top: auto; 
+}
+
+.legenda-foto h4 { 
+    font-size: 1.2rem; 
+    margin-bottom: 5px; 
+    color: var(--primary); 
+}
+
+.legenda-foto p { 
+    font-size: 0.95rem; 
+    color: var(--text-gray); 
+    margin: 0;
+}
+
+/* Call to Action e Footer */
 .cta-box { text-align: center; padding: 60px 0; }
 .btn-orcamento { background-color: #25D366; color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); text-align: center; }
 
@@ -193,30 +273,32 @@ footer { background: var(--primary-dark); color: #a0aec0; padding: 60px 0 30px; 
 
 /* =========================================
    5. RESPONSIVIDADE (MOBILE & TABLET)
-   Aqui está a mágica para consertar o celular
    ========================================= */
 
 @media (max-width: 992px) {
     /* Tablet e Telas Médias */
     .grid-sobre, .grid-contato, .grid-mapa, .grid-detalhes { 
-        grid-template-columns: 1fr; /* Força 1 coluna */
+        grid-template-columns: 1fr; 
         gap: 50px; 
     }
     .hero h1 { font-size: 2.8rem; }
     .titulo-secao { font-size: 2.2rem; }
     .mapa-wrapper { height: 350px; }
+    
+    .img-detalhes img { height: 450px; }
+    .imagem-sobre-wrapper img { height: 450px; }
 }
 
 @media (max-width: 768px) {
     /* Celular (Correções Críticas) */
     
-    .container { padding: 0 20px; } /* Margem lateral menor */
+    .container { padding: 0 20px; } 
     
     /* Header Mobile */
-    .mobile-btn { display: block; } /* Mostra o botão hamburger */
+    .mobile-btn { display: block; } 
     
     .menu {
-        display: none; /* Esconde menu padrão */
+        display: none; 
         position: absolute;
         top: 100%;
         left: 0;
@@ -228,13 +310,13 @@ footer { background: var(--primary-dark); color: #a0aec0; padding: 60px 0 30px; 
         border-top: 1px solid #eee;
     }
     
-    .menu.ativo { display: flex; animation: slideDown 0.3s ease; } /* JS ativa essa classe */
+    .menu.ativo { display: flex; animation: slideDown 0.3s ease; } 
     .menu li { width: 100%; text-align: center; padding: 10px 0; }
     .menu .btn-header { display: inline-block; width: 100%; margin-top: 10px; }
 
     /* Hero no Celular */
     .hero { padding: 120px 0 80px; text-align: center; }
-    .hero h1 { font-size: 2.2rem; } /* Fonte menor */
+    .hero h1 { font-size: 2.2rem; } 
     .hero p { font-size: 1rem; margin-bottom: 30px; }
     .hero-btns { flex-direction: column; width: 100%; }
     .hero-btns a { width: 100%; text-align: center; }
@@ -243,12 +325,22 @@ footer { background: var(--primary-dark); color: #a0aec0; padding: 60px 0 30px; 
     .hero-interna h1 { font-size: 2rem; }
 
     /* Seções Gerais */
-    .secao { padding: 60px 0; } /* Menos espaço em branco */
+    .secao { padding: 60px 0; } 
     .titulo-secao { font-size: 1.8rem; margin-bottom: 16px; }
     .titulo-central { margin-bottom: 40px; }
 
     /* Contato e Forms */
     .form-premium { padding: 24px; }
+    
+    /* Ajuste da Galeria no Celular */
+    .grid-galeria { 
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+
+    /* IMAGENS NO CELULAR */
+    .img-detalhes img { height: 400px; }
+    .imagem-sobre-wrapper img { height: 400px; }
+    .item-galeria img { height: 350px; } /* Um pouco menor no celular para caber na tela */
     
     /* Footer e WhatsApp */
     .btn-zap-flutuante { width: 55px; height: 55px; font-size: 26px; bottom: 15px; right: 15px; }
@@ -258,4 +350,57 @@ footer { background: var(--primary-dark); color: #a0aec0; padding: 60px 0 30px; 
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+/* =========================================
+   NOVAS MELHORIAS (Pulse WhatsApp + Novo Footer)
+   Cole isso no final do style.css
+   ========================================= */
+
+/* Animação de "Pulsar" do WhatsApp */
+@keyframes pulse-zap {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+    50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(37, 211, 102, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+}
+
+.btn-zap-flutuante {
+    animation: pulse-zap 2s infinite;
+}
+
+/* Estilos do Novo Footer Profissional */
+footer {
+    background: var(--primary-dark);
+    color: #cbd5e0;
+    padding: 80px 0 30px;
+    text-align: left; /* Alinhamento à esquerda fica mais elegante */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-col h3 { color: white; margin-bottom: 20px; font-size: 1.5rem; }
+.footer-col h4 { color: var(--secondary); margin-bottom: 20px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+.footer-col p { font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6; }
+
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #cbd5e0; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+.footer-links a:hover { color: var(--secondary); transform: translateX(5px); }
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Ajuste footer mobile */
+@media (max-width: 768px) {
+    footer { text-align: center; }
+    .footer-links a { justify-content: center; }
 }
